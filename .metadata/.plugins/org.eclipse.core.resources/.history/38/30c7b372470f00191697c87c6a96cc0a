@@ -1,0 +1,31 @@
+package com.airline.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.airline.model.User;
+import com.airline.util.HibernateUtil;
+
+public class MySqlDAO implements DAO {
+
+	private SessionFactory sessionFactory;
+	
+	public MySqlDAO()
+	{
+		sessionFactory = HibernateUtil.getSessionFactory();
+	}
+	
+	
+	public boolean validate(String emailId, String password) {
+		
+		Session session = sessionFactory.openSession();
+		String hql = "from User where emailId = ? and password = ?";
+		User user = (User)session.createQuery(hql)
+				.setString(0, emailId).setParameter(1, password).uniqueResult();
+		if(user!=null) {
+			return true;
+		}
+		return false;
+	}
+
+}

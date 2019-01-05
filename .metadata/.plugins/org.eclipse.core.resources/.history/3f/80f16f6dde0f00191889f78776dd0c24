@@ -1,0 +1,7 @@
+package com.airline.dao;
+
+
+public interface DAO {
+
+	public boolean validate(String emailId, String password);
+}
