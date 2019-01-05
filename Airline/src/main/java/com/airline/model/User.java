@@ -1,11 +1,17 @@
 package com.airline.model;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
 @Table
-public class User {
+public class User implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	private String emailId;
 	@Column(nullable = false)

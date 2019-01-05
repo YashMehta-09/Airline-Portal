@@ -1,0 +1,18 @@
+package com.airline.model;
+public class FlightBo {
+	
+	//List<FlightDetails> list=new ArrayList<>();
+	
+	public List<FlightDetails>  flightRecords(FlightDetails flightdetails){
+		
+		
+		FlightRecordsDao flightdao=new FlightRecordsDao();
+		
+	List<FlightDetails> list=flightdao.records(flightdetails);
+	
+		
+		return list;
+		
+	}
+
+}

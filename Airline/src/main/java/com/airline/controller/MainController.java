@@ -1,6 +1,11 @@
 package com.airline.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,95 +14,100 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.airline.bo.FlightBO;
+import com.airline.bo.UserBO;
 import com.airline.dao.MySqlDAO;
+import com.airline.model.Flight;
 import com.airline.model.User;
 
-/**
- * Servlet implementation class RegisterServlet
- */
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MainController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+	public MainController() {
+		super();
+
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		System.out.println("Logged Out");
 		HttpSession session = request.getSession(false);
 		session.invalidate();
 		RequestDispatcher dispatch = request.getRequestDispatcher("Index.jsp");
 		dispatch.forward(request, response);
-		
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		HttpSession session = request.getSession(true);
 		RequestDispatcher dispatch = null;
-		
+
 		User user = new User();
-		MySqlDAO mySqlDAO = new MySqlDAO();
-		
-		
+		UserBO userBO = new UserBO();
+
 		String emailId = request.getParameter("email");
 		String password = request.getParameter("password");
 		String contact = request.getParameter("contact");
-		
+
 		user.setEmailId(emailId);
 		user.setPassword(password);
 		user.setContact(contact);
-		
-		System.out.println(emailId);
-		System.out.println(password);
-		System.out.println(contact);
-		
-		
-		
-		if("Login".equals(request.getParameter("Login")))
-		{
+
+		if ("Login".equals(request.getParameter("Login"))) {
 			System.out.println("Inside Login");
-			boolean status = mySqlDAO.validate(user);
-			System.out.println(status);
-			if(status)
-			{
+			boolean status = userBO.validate(user);
+			// System.out.println(status);
+			if (status) {
 				dispatch = request.getRequestDispatcher("views/main.jsp");
 				session.setAttribute("user", user);
 				dispatch.forward(request, response);
 			}
-			
-			/*System.out.println(user.getEmailId());
-			System.out.println(user.getPassword());
-			System.out.println(user.getContact());*/
-			
-		}
-		else if("Signup".equals(request.getParameter("Signup")))
-		{
+		} else if ("Signup".equals(request.getParameter("Signup"))) {
 			System.out.println("Inside Signup");
-			boolean status = mySqlDAO.create(user);
-			System.out.println(status);
-			if(status)
-			{
+			boolean status = userBO.create(user);
+			// System.out.println(status);
+			if (status) {
 				dispatch = request.getRequestDispatcher("views/main.jsp");
 				session.setAttribute("user", user);
 				dispatch.forward(request, response);
 			}
-			/*System.out.println(user.getEmailId());
-			System.out.println(user.getPassword());
-			System.out.println(user.getContact());*/
+		} else if ("Flights".equals(request.getParameter("Flights"))) {
+			System.out.println("Flights");
+
+			String source = request.getParameter("source");
+			String destination = request.getParameter("destination");
+			String date = request.getParameter("date");
+
+			Flight flightdetails = new Flight();
+
+			flightdetails.setDestination(destination);
+			flightdetails.setSource(source);
+
+			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+			Date d = null;
+			try {
+				d = sdf.parse(date);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+
+			flightdetails.setDate(d);
+
+			FlightBO flightBO = new FlightBO();
+
+			List<Flight> flightList = flightBO.flightRecords(flightdetails);
+
+			session.setAttribute("flights", flightList);
+
+			if (flightList.size() == 0) {
+
+			} else {
+				dispatch = request.getRequestDispatcher("views/flight.jsp");
+				dispatch.forward(request, response);
+			}
 		}
 	}
 

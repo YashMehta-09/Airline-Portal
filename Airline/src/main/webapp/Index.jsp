@@ -266,25 +266,21 @@
 				<hr />
 
 
-				<form action="ActionServlet" method="post"
-					onsubmit="return checkMe()">
+				<form action="MainController" method="post" onsubmit="return checkMe()">
 					<input type="hidden" name="type" value="flightdetails">
 					<div class="row">
 						<div class="col-md-12">
 							<h2>Find Flights between two airports</h2>
 
 							<h4>Enter Departure Airport Code :</h4>
-							&nbsp; <input type="text" name="dac" id="dac" />
+							&nbsp; <input type="text" name="source" id="source" />
 							<h4>Enter Arrival Airport Code :</h4>
-							&nbsp; <input type="text" name="aac" id="aac" /> &nbsp;
+							&nbsp; <input type="text" name="destination" id="destination" /> &nbsp;
 							<h4>Enter the Departure Date :</h4>
 							<input type="date" name="date" id="date" />
 							<br /> <br />
 							<input type="submit" name="Flights" value="Flights"
 								class="btn btn-success ">
-
-
-
 						</div>
 					</div>
 					<hr />

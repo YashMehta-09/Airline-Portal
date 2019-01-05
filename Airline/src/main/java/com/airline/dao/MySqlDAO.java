@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 import com.airline.model.User;
 import com.airline.util.HibernateUtil;
 
-public class MySqlDAO implements DAO {
+public class MySqlDAO implements UserDAO {
 
 	private SessionFactory sessionFactory;
 	
@@ -53,3 +53,8 @@ public class MySqlDAO implements DAO {
 	
 
 }
+
+
+
+
+

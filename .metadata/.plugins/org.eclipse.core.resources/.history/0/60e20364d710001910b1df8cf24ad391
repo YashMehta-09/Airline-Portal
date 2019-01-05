@@ -1,0 +1,24 @@
+package com.airline.bo;
+
+import java.util.List;
+
+import com.airline.dao.FlightRecordsDao;
+import com.airline.model.Flight;
+
+public class FlightBo {
+	
+	//List<FlightDetails> list=new ArrayList<>();
+	
+	public List<Flight>  flightRecords(Flight flight){
+		
+		
+		FlightRecordsDao flightdao=new FlightRecordsDao();
+		
+	List<Flight> list=flightdao.records(flight);
+	
+		
+		return list;
+		
+	}
+
+}

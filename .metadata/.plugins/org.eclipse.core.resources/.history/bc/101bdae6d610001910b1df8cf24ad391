@@ -1,0 +1,6 @@
+package com.airline.dao;
+public interface FlightDAO {
+	
+	public List<FlightDetails> records(FlightDetails flight);
+
+}
