@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>	
+	    <%@ page import="java.util.*" %>
+	<%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -264,7 +266,17 @@
 
 				<!-- /. ROW  -->
 				<hr />
+				<%
+					
+					Date date=new Date();
 
+					System.out.println(date);
+
+					SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+
+					String d=sdf.format(date);
+
+				%>
 
 				<form action="MainController" method="post" onsubmit="return checkMe()">
 					<input type="hidden" name="type" value="flightdetails">
@@ -272,12 +284,27 @@
 						<div class="col-md-12">
 							<h2>Find Flights between two airports</h2>
 
-							<h4>Enter Departure Airport Code :</h4>
-							&nbsp; <input type="text" name="source" id="source" />
-							<h4>Enter Arrival Airport Code :</h4>
-							&nbsp; <input type="text" name="destination" id="destination" /> &nbsp;
+							<h4>Enter Departure Airport:</h4>
+							<div class="form-group">
+								<label for="sel1">Source</label> 
+								<select class="form-control" id="source" name="source">
+									<option value="KOLKATA">Kolkata(CCU)</option>
+									<option value="JAIPUR">Jaipur(JAI)</option>
+									<option value="MUMBAI">Mumbai(BOM)</option>
+								</select>
+							</div>
+							<h4>Enter Arrival Airport:</h4>
+							<div class="form-group">
+								<label for="sel2">Destination</label>
+								 <select class="form-control" id="destination" name="destination">
+									<option value="KOLKATA">Kolkata(CCU)</option>
+									<option value="JAIPUR">Jaipur(JAI)</option>
+									<option value="MUMBAI">Mumbai(BOM)</option>
+								</select>
+							</div>
+
 							<h4>Enter the Departure Date :</h4>
-							<input type="date" name="date" id="date" />
+							<input type="date" name="date" id="date" placeholder=<%=d%> />
 							<br /> <br />
 							<input type="submit" name="Flights" value="Flights"
 								class="btn btn-success ">

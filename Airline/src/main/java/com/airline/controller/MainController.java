@@ -80,21 +80,50 @@ public class MainController extends HttpServlet {
 			String source = request.getParameter("source");
 			String destination = request.getParameter("destination");
 			String date = request.getParameter("date");
+			Date date1=null;
+			System.out.println(date);
+			if(date.isEmpty()) {
 
+				date1=new Date();
+
+				SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+
+				date=sdf.format(date1);
+
+				//System.out.println(date);
+
+			}
+			else
+			{
+				SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+				try {
+					date1 = fmt.parse(date);
+					fmt.applyPattern("dd-MM-yyyy");
+					System.out.println(date1);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			System.out.println(source);
+			System.out.println(destination);
+			
 			Flight flightdetails = new Flight();
 
 			flightdetails.setDestination(destination);
 			flightdetails.setSource(source);
 
-			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+			/*SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 			Date d = null;
 			try {
 				d = sdf.parse(date);
 			} catch (ParseException e) {
 				e.printStackTrace();
-			}
+			}*/
 
-			flightdetails.setDate(d);
+			flightdetails.setDate(date1);
+			System.out.println(date1);
 
 			FlightBO flightBO = new FlightBO();
 
