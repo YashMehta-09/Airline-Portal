@@ -42,13 +42,13 @@ public class FlightRecordsDAO implements FlightDAO {
 		/*for (Flight f : flightList) {
 			System.out.println(f.getArilineName());
 			System.out.println(f.getSource());
-		}*/
+		}
 		
 		if (flightList.size() == 0) {
 			System.out.println("list is empty");
 		} else {
 			System.out.println("list is full");
-		}
+		}*/
 		
 		session.getTransaction().commit();
 		session.close();

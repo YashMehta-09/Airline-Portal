@@ -1,88 +1,101 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>	
+
+	pageEncoding="ISO-8859-1"%>
+
 	    <%@ page import="java.util.*" %>
+	    <%@ page import="com.airline.model.*" %>
+
 	<%@ page import="java.text.SimpleDateFormat" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<html>
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Home</title>
-<!-- BOOTSTRAP STYLES-->
-<link href="css/bootstrap.css" rel="stylesheet" />
-<!-- FONTAWESOME STYLES-->
-<link href="css/font-awesome.css" rel="stylesheet" />
-<!-- CUSTOM STYLES-->
-<link href="css/custom.css" rel="stylesheet" />
-<!-- Bootstrap CSS CDN -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!-- GOOGLE FONTS-->
-<link href='http://fonts.googleapis.com/css?family=Open+Sans'
-	rel='stylesheet' type='text/css' />
-
-<script type="text/javascript">
-	function checkMe() {
-		if (document.getElementById('ch1').checked == false
-				&& document.getElementById('ch2').checked == false
-				&& document.getElementById('ch3').checked == false) {
-			alert('Please select atleast one criteria for stops');
-			return false;
-		}
-
-		if (document.getElementById('dac').value == ''
-				|| document.getElementById('aac').value == '') {
-			alert('Please enter both departure and arrival airport codes');
-			return false;
-		}
-
-		if (document.getElementById('dac').value == document
-				.getElementById('aac').value) {
-			alert('Please enter different departure and arrival airport codes');
-			return false;
-		}
-
-	}
-</script>
-</head>
-<body>
-
-	<div id="wrapper">
-		<nav class="navbar navbar-default navbar-cls-top " role="navigation"
-			style="margin-bottom: 0">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target=".sidebar-collapse">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="index.html">AirLink</a>
-		</div>
-		<div>
-			<p
-				style="color: red; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
-				Welcome Guest &nbsp;</p>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="fontpage.jsp"><span
-						class="glyphicon glyphicon-home" style="Color: blue"> HOME</span></a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-phone-alt"
-						style="Color: blue"> CONTACT US</span></a></li>
-				<li><a href="#" data-toggle="modal"
-					data-target="#modalLoginForm"><span
-						class="glyphicon glyphicon-log-in" style="Color: blue">
-							LOGIN</span></a></li>
-				<li><a href="#" data-toggle="modal"
-					data-target="#modalRegisterForm"><span
-						class="glyphicon glyphicon-user" style="Color: blue"> SIGN
-							UP</span></a></li>
-			</ul>
-
-		</div>
 
 
-		<form method="post" action="MainController">
+<html lang="en">
+
+  <head>
+
+    <title>Index Page</title>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/animate.css">
+
+    
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+
+
+    <link rel="stylesheet" href="css/aos.css">
+
+
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+
+    
+
+    <link rel="stylesheet" href="css/flaticon.css">
+
+    <link rel="stylesheet" href="css/icomoon.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+
+  <body>
+
+    <div id="ftco-nav">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">AIRLINE</a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a href="#" data-toggle="modal"
+					data-target="#modalLoginForm" class="nav-link">Login</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" data-toggle="modal"
+					data-target="#modalRegisterForm" class="nav-link">SignUp</a></li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+          
+        </div>
+          		<form method="post" action="MainController">
 			<div class="modal fade" id="modalLoginForm" tabindex="-1"
 				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
@@ -108,7 +121,7 @@
 								<label data-error="wrong" data-success="right"
 									for="defaultForm-pass" class="glyphicon glyphicon-lock">
 									Your password</label> <input type="password" id="defaultForm-pass"
-									name="password" placeholder="password"
+									name="password" placeholder="Password"
 									class="form-control validate">
 
 							</div>
@@ -136,9 +149,9 @@
 				</div>
 			</div>
 		</form>
+          
 
-
-		<form method="post" action="MainController">
+          <form method="post" action="MainController">
 			<div class="modal fade" id="modalRegisterForm" tabindex="-1"
 				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
@@ -213,169 +226,396 @@
 			</div>
 		</form>
 
+    </nav>
 
-		</nav>
+    <!-- END nav -->
+
+    
+
+    <section class="home-slider owl-carousel">
+
+      <div class="slider-item" style="background-image: url('images/bg_4.jpg');">
+
+        <div class="overlay"></div>
+
+        <div class="container">
+
+          <div class="row slider-text align-items-center">
+
+            <div class="col-md-7 col-sm-12 ftco-animate">
+
+              <h1 class="mb-3">Experience the best trip ever through our AIRLINE</h1>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
 
 
-		<!--/.SLIDESHOW END-->
-		<!-- /. NAV TOP  -->
-		<nav class="navbar-default navbar-side" role="navigation">
-		<div class="sidebar-collapse">
-			<section id="home" class="text-center">
 
-			<div id="carousel-example" class="carousel slide"
-				data-ride="carousel">
+      <div class="slider-item" style="background-image: url('images/bg_1.jpg');">
 
-				<div class="carousel-inner" style="height: 180px">
-					<div class="item active">
+        <div class="overlay"></div>
 
-						<img src="images/aa.jpg" alt="" />
-						<div class="carousel-caption">
-							<h4 class="back-light"></h4>
-						</div>
-					</div>
-					<div class="item">
-						<img src="images/aa1.jpg" alt="" />
-						<div class="carousel-caption ">
-							<h4 class="back-light"></h4>
-						</div>
-					</div>
-					<div class="item">
-						<img src="images/sw1.jpg" alt="" />
-						<div class="carousel-caption ">
-							<h4 class="back-light"></h4>
-						</div>
-					</div>
-				</div>
+        <div class="container">
 
-				<ol class="carousel-indicators">
-					<li data-target="#carousel-example" data-slide-to="0"
-						class="active"></li>
-					<li data-target="#carousel-example" data-slide-to="1"></li>
-					<li data-target="#carousel-example" data-slide-to="2"></li>
-				</ol>
-			</div>
+          <div class="row slider-text align-items-center">
 
-			</section>
+            <div class="col-md-7 col-sm-12 ftco-animate">
 
-		</div>
+              <h1 class="mb-3">Making the most out of your holiday</h1>
 
-		</nav>
-		<div id="page-wrapper">
-			<div id="page-inner">
+            </div>
 
-				<!-- /. ROW  -->
-				<hr />
-				<%
-					
-					Date date=new Date();
+          </div>
 
-					System.out.println(date);
+        </div>
 
-					SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+      </div>
 
-					String d=sdf.format(date);
 
-				%>
 
-				<form action="MainController" method="post" onsubmit="return checkMe()">
-					<input type="hidden" name="type" value="flightdetails">
-					<div class="row">
-						<div class="col-md-12">
-							<h2>Find Flights between two airports</h2>
+      <div class="slider-item" style="background-image: url('images/bg_3.jpg');">
 
-							<h4>Enter Departure Airport:</h4>
-							<div class="form-group">
-								<label for="sel1">Source</label> 
+        <div class="overlay"></div>
+
+        <div class="container">
+
+          <div class="row slider-text align-items-center">
+
+            <div class="col-md-7 col-sm-12 ftco-animate">
+
+              <h1 class="mb-3">Travel Operator Just For You</h1>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- END slider -->
+
+
+
+    <div class="ftco-section-search">
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-md-12 tabulation-search">
+
+              <p></p>
+
+            <div class="tab-content py-5" id="v-pills-tabContent">
+
+              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+                <div class="block-17">
+
+                    
+
+                    <%
+
+                        Date date=new Date();
+
+                        SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+
+                        String d=sdf.format(date);
+
+					%>
+
+                        
+
+                  <form action="MainController" method="post"class="d-block d-lg-flex">
+
+                    <div class="fields d-block d-lg-flex">
+
+
+
+                      <div class="textfield-search one-third">
+
+                          <div class="form-group"> 
+
+                              <label style="color:white" >Source</label>
+
 								<select class="form-control" id="source" name="source">
-									<option value="KOLKATA">Kolkata(CCU)</option>
+						
+									<%
+										List<Cities> cityList = (List<Cities>) request.getAttribute("citylist");
+										for(Cities c:cityList)
+										{
+									%>
+									
+									<option value=<%=c.getCityName() %>><%=c.getAbbreviations() %></option>
+									<%
+										}
+									%>
+							<!--  		<option value="KOLKATA">Kolkata(CCU)</option>
+
 									<option value="JAIPUR">Jaipur(JAI)</option>
-									<option value="MUMBAI">Mumbai(BOM)</option>
+
+									<option value="MUMBAI">Mumbai(BOM)</option> -->
+
 								</select>
-							</div>
-							<h4>Enter Arrival Airport:</h4>
-							<div class="form-group">
-								<label for="sel2">Destination</label>
+
+							</div></div>
+
+
+
+                      <div class="check-in one-third">
+
+                          <div class="form-group">
+
+                              <label style="color:white">Destination</label>
+
 								 <select class="form-control" id="destination" name="destination">
-									<option value="KOLKATA">Kolkata(CCU)</option>
-									<option value="JAIPUR">Jaipur(JAI)</option>
-									<option value="MUMBAI">Mumbai(BOM)</option>
+
+									<%
+									for(Cities c:cityList)
+									{
+									
+									%>
+									
+									<option value=<%=c.getCityName() %>><%=c.getAbbreviations() %></option>
+									
+									<%
+										}
+									%>
+
 								</select>
-							</div>
 
-							<h4>Enter the Departure Date :</h4>
-							<input type="date" name="date" id="date" placeholder=<%=d%> />
-							<br /> <br />
-							<input type="submit" name="Flights" value="Flights"
-								class="btn btn-success ">
-						</div>
-					</div>
-					<hr />
-				</form>
-
-				<br />
+							</div></div>
 
 
 
+                      <div class="check-out one-third">
 
+                          <label style="color:white" >Journey Date</label>
 
-				<div class="row">
+                          <input type="date" name="date" id="date" class="form-control" placeholder=<%=d%>></div>
 
-					<div class="col-md-6 col-sm-12 col-xs-12">
-						<div class="panel panel-default">
+                    </div>
 
-							<div class="panel-body">
-								<a href="AvailSeats.jsp"
-									class="btn btn-danger square-btn-adjust">Get Available
-									Seats Information</a> <br /> <br /> <a href="GetFareInfo.jsp"
-									class="btn btn-danger square-btn-adjust">Get Fare
-									Information</a> <br /> <br /> <a href="Passenger.jsp"
-									class="btn btn-danger square-btn-adjust">Get Passenger List
-									for a flight</a> <br /> <br /> <a href="viewFlightInstances.jsp"
-									class="btn btn-danger square-btn-adjust">Get List of
-									flights for a passenger</a>
+                    <input type="submit" class="search-submit btn btn-primary" name="Flights" value="Flights">  
 
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-12 col-xs-12">
-						<div class="panel panel-default">
+                  </form>
 
-							<div class="panel-body">
+                </div>
 
-								<h2>Special Deals</h2>
+                </div>
 
-								<h4>Fly anywhere in USA starting $99</h4>
-								<h4>Earn 1000 mileage points for each flight with American
-									Airlines</h4>
-							</div>
-						</div>
-					</div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
 
 
 
+    
 
-					<!-- /. PAGE INNER  -->
+    
 
-					<!-- /. PAGE WRAPPER  -->
-				</div>
-			</div>
-		</div>
-	</div>
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
 
-	<script type="text/javascript" src="assets/js/canvasjs.min.js"></script>
+      <div class="container">
 
-	<!-- /. WRAPPER  -->
-	<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-	<!-- JQUERY SCRIPTS -->
-	<script src="js/jquery-1.10.2.js"></script>
-	<!-- BOOTSTRAP SCRIPTS -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- METISMENU SCRIPTS -->
-	<script src="js/jquery.metisMenu.js"></script>
-	<!-- CUSTOM SCRIPTS -->
-	<script src="js/custom.js"></script>
+        <div class="row mb-5">
+
+          <div class="col-md">
+
+            <div class="ftco-footer-widget mb-4">
+
+              <h2 class="ftco-heading-2">Airline Fellow Tourist</h2>
+
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+
+            </div>
+
+          </div>
+
+          <div class="col-md">
+
+             <div class="ftco-footer-widget mb-4">
+
+              <h2 class="ftco-heading-2">Book Now</h2>
+
+              <ul class="list-unstyled">
+
+                <li><a href="#" class="py-2 d-block">Flight</a></li>
+
+                <li><a href="#" class="py-2 d-block">Hotels</a></li>
+
+                <li><a href="#" class="py-2 d-block">Tour</a></li>
+
+                <li><a href="#" class="py-2 d-block">Car Rent</a></li>
+
+                <li><a href="#" class="py-2 d-block">Beach &amp; Resorts</a></li>
+
+                <li><a href="#" class="py-2 d-block">Mountains</a></li>
+
+                <li><a href="#" class="py-2 d-block">Cruises</a></li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+          <div class="col-md">
+
+             <div class="ftco-footer-widget mb-4">
+
+              <h2 class="ftco-heading-2">Top Deals</h2>
+
+              <ul class="list-unstyled">
+
+                <li><a href="#" class="py-2 d-block">Luxe Hotel</a></li>
+
+                <li><a href="#" class="py-2 d-block">Venice Tours</a></li>
+
+                <li><a href="#" class="py-2 d-block">Deluxe Hotels</a></li>
+
+                <li><a href="#" class="py-2 d-block">Boracay Beach &amp; Resorts</a></li>
+
+                <li><a href="#" class="py-2 d-block">Beach &amp; Resorts</a></li>
+
+                <li><a href="#" class="py-2 d-block">Fuente Villa</a></li>
+
+                <li><a href="#" class="py-2 d-block">Japan Tours</a></li>
+
+                <li><a href="#" class="py-2 d-block">Philippines Tours</a></li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+          <div class="col-md">
+
+             <div class="ftco-footer-widget mb-4">
+
+              <h2 class="ftco-heading-2">Contact Information</h2>
+
+              <ul class="list-unstyled">
+
+                <li><a href="#" class="py-2 d-block">198 West 21th Street, Suite 721 New York NY 10016</a></li>
+
+                <li><a href="#" class="py-2 d-block">+ 1235 2355 98</a></li>
+
+                <li><a href="#" class="py-2 d-block">info@yoursite.com</a></li>
+
+                <li><a href="#" class="py-2 d-block">email@email.com</a></li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+          <div class="col-md">
+
+            <div class="ftco-footer-widget mb-4">
+
+              <ul class="ftco-footer-social list-unstyled float-md-right float-lft">
+
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-12 text-center">
 
 
-</body>
+
+            <p>
+
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </footer>
+
+    
+
+  
+
+
+
+  <!-- loader -->
+
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+
+
+
+  <script src="js/jquery.min.js"></script>
+
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+
+  <script src="js/popper.min.js"></script>
+
+  <script src="js/bootstrap.min.js"></script>
+
+  <script src="js/jquery.easing.1.3.js"></script>
+
+  <script src="js/jquery.waypoints.min.js"></script>
+
+  <script src="js/jquery.stellar.min.js"></script>
+
+  <script src="js/owl.carousel.min.js"></script>
+
+  <script src="js/jquery.magnific-popup.min.js"></script>
+
+  <script src="js/aos.js"></script>
+
+  <script src="js/jquery.animateNumber.min.js"></script>
+
+  <script src="js/bootstrap-datepicker.js"></script>
+
+  <script src="js/jquery.timepicker.min.js"></script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+
+  <script src="js/google-map.js"></script>
+
+  <script src="js/main.js"></script>
+
+    
+
+  </body>
+
 </html>
+
+

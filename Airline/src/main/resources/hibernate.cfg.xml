@@ -14,5 +14,6 @@
         <property name="format_sql">false</property>
         <mapping class="com.airline.model.User"/>
         <mapping class="com.airline.model.Flight"/>
+        <mapping class="com.airline.model.Cities"/>
     </session-factory>
 </hibernate-configuration>

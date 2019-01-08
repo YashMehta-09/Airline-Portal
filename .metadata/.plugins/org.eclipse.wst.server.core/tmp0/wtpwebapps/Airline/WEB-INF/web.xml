@@ -16,6 +16,12 @@
   	<description></description>
   	<servlet-class>com.airline.controller.FlightController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>InitializerController</servlet-name>
+  	<display-name>InitializerController</display-name>
+  	<description></description>
+  	<servlet-class>com.airline.controller.InitializerController</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>MainController</servlet-name>
   	<url-pattern>/MainController</url-pattern>
@@ -23,5 +29,9 @@
   <servlet-mapping>
   	<servlet-name>FlightController</servlet-name>
   	<url-pattern>/FlightController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InitializerController</servlet-name>
+  	<url-pattern>/</url-pattern>
   </servlet-mapping>
 </web-app>

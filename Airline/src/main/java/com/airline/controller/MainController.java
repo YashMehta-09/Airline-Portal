@@ -61,7 +61,7 @@ public class MainController extends HttpServlet {
 			boolean status = userBO.validate(user);
 			// System.out.println(status);
 			if (status) {
-				dispatch = request.getRequestDispatcher("views/main.jsp");
+				dispatch = request.getRequestDispatcher("views/profile.jsp");
 				session.setAttribute("user", user);
 				dispatch.forward(request, response);
 			}
@@ -70,13 +70,15 @@ public class MainController extends HttpServlet {
 			boolean status = userBO.create(user);
 			// System.out.println(status);
 			if (status) {
-				dispatch = request.getRequestDispatcher("views/main.jsp");
+				dispatch = request.getRequestDispatcher("views/profile.jsp");
 				session.setAttribute("user", user);
 				dispatch.forward(request, response);
 			}
 		} else if ("Flights".equals(request.getParameter("Flights"))) {
-			System.out.println("Flights");
-
+			
+			//System.out.println("Flights");
+			Flight flight = new Flight();
+			
 			String source = request.getParameter("source");
 			String destination = request.getParameter("destination");
 			String date = request.getParameter("date");
@@ -95,7 +97,7 @@ public class MainController extends HttpServlet {
 			}
 			else
 			{
-				SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+				SimpleDateFormat fmt = new SimpleDateFormat("dd-MM-yyyy");
 				try {
 					date1 = fmt.parse(date);
 					fmt.applyPattern("dd-MM-yyyy");
@@ -106,28 +108,20 @@ public class MainController extends HttpServlet {
 				}
 			}
 
-			System.out.println(source);
-			System.out.println(destination);
+			/*System.out.println(source);
+			System.out.println(destination);*/
 			
-			Flight flightdetails = new Flight();
+		
 
-			flightdetails.setDestination(destination);
-			flightdetails.setSource(source);
+			flight.setDestination(destination);
+			flight.setSource(source);
 
-			/*SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-			Date d = null;
-			try {
-				d = sdf.parse(date);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}*/
-
-			flightdetails.setDate(date1);
-			System.out.println(date1);
+			flight.setDate(date1);
+			//System.out.println(date1);
 
 			FlightBO flightBO = new FlightBO();
 
-			List<Flight> flightList = flightBO.flightRecords(flightdetails);
+			List<Flight> flightList = flightBO.flightRecords(flight);
 
 			session.setAttribute("flights", flightList);
 

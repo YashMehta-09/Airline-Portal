@@ -1,0 +1,15 @@
+package com.airline.bo;
+
+import java.util.List;
+
+import com.airline.model.Cities;
+
+public class CityBO {
+
+	public static List<Cities> cityRecords() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}
