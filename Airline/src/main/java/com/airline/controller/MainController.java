@@ -14,9 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.airline.bo.CityBO;
 import com.airline.bo.FlightBO;
 import com.airline.bo.UserBO;
 import com.airline.dao.MySqlDAO;
+import com.airline.model.Cities;
 import com.airline.model.Flight;
 import com.airline.model.User;
 
@@ -34,7 +36,7 @@ public class MainController extends HttpServlet {
 		System.out.println("Logged Out");
 		HttpSession session = request.getSession(false);
 		session.invalidate();
-		RequestDispatcher dispatch = request.getRequestDispatcher("Index.jsp");
+		RequestDispatcher dispatch = request.getRequestDispatcher("InitializerController");
 		dispatch.forward(request, response);
 
 	}
@@ -43,6 +45,7 @@ public class MainController extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession(true);
+		System.out.println(session.getId());
 		RequestDispatcher dispatch = null;
 
 		User user = new User();
@@ -51,6 +54,8 @@ public class MainController extends HttpServlet {
 		String emailId = request.getParameter("email");
 		String password = request.getParameter("password");
 		String contact = request.getParameter("contact");
+		
+		//System.out.println(passenger);
 
 		user.setEmailId(emailId);
 		user.setPassword(password);
@@ -61,7 +66,11 @@ public class MainController extends HttpServlet {
 			boolean status = userBO.validate(user);
 			// System.out.println(status);
 			if (status) {
+				CityBO cityBO = new CityBO();
+				
+				List<Cities> cityList  = cityBO.cityRecords();
 				dispatch = request.getRequestDispatcher("views/profile.jsp");
+				session.setAttribute("citylist", cityList);
 				session.setAttribute("user", user);
 				dispatch.forward(request, response);
 			}
@@ -70,7 +79,10 @@ public class MainController extends HttpServlet {
 			boolean status = userBO.create(user);
 			// System.out.println(status);
 			if (status) {
+				CityBO cityBO = new CityBO();
+				List<Cities> cityList  = cityBO.cityRecords();
 				dispatch = request.getRequestDispatcher("views/profile.jsp");
+				session.setAttribute("citylist", cityList);
 				session.setAttribute("user", user);
 				dispatch.forward(request, response);
 			}
@@ -82,6 +94,7 @@ public class MainController extends HttpServlet {
 			String source = request.getParameter("source");
 			String destination = request.getParameter("destination");
 			String date = request.getParameter("date");
+			int passenger = Integer.parseInt(request.getParameter("passenger"));
 			Date date1=null;
 			System.out.println(date);
 			if(date.isEmpty()) {
@@ -97,10 +110,10 @@ public class MainController extends HttpServlet {
 			}
 			else
 			{
-				SimpleDateFormat fmt = new SimpleDateFormat("dd-MM-yyyy");
+				SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
 				try {
 					date1 = fmt.parse(date);
-					fmt.applyPattern("dd-MM-yyyy");
+					//fmt.applyPattern("dd-MM-yyyy");
 					System.out.println(date1);
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
@@ -124,11 +137,14 @@ public class MainController extends HttpServlet {
 			List<Flight> flightList = flightBO.flightRecords(flight);
 
 			session.setAttribute("flights", flightList);
+			//System.out.println(passenger);
+			session.setAttribute("passenger", passenger);
 
 			if (flightList.size() == 0) {
 
 			} else {
 				dispatch = request.getRequestDispatcher("views/flight.jsp");
+				//session.setAttribute("user", user);
 				dispatch.forward(request, response);
 			}
 		}

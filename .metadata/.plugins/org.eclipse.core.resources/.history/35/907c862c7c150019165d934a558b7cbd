@@ -1,0 +1,5 @@
+package com.airline.bo;
+
+public class TicketBO {
+
+}

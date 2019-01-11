@@ -1,0 +1,10 @@
+package com.airline.bo;
+
+public class BookingCheck {
+	
+	public boolean preBookCheck()
+	{
+		return false;
+	}
+
+}

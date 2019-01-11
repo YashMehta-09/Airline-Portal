@@ -15,5 +15,6 @@
         <mapping class="com.airline.model.User"/>
         <mapping class="com.airline.model.Flight"/>
         <mapping class="com.airline.model.Cities"/>
+        <mapping class="com.airline.model.Ticket"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,0 +1,129 @@
+package com.airline.controller;
+
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.airline.model.Flight;
+import com.airline.model.User;
+
+/**
+ * Servlet implementation class FlightDetailsController
+ */
+public class FlightDetailsController extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 
+	 * @see HttpServlet#HttpServlet()
+	 * 
+	 */
+
+	public FlightDetailsController() {
+
+		super();
+
+		// TODO Auto-generated constructor stub
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// TODO Auto-generated method stub
+		HttpSession session = request.getSession(false);
+		RequestDispatcher dispatch = null;
+
+		String button = request.getParameter("button");
+
+		Flight flight = new Flight();
+		flight.setAirlineName(request.getParameter("airlinename"));
+
+		flight.setSource(request.getParameter("source"));
+
+		Date d = null;
+		try {
+			d = new SimpleDateFormat("HH:mm:ss").parse(request.getParameter("arrivaltime"));
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		java.sql.Time sqlTime = new java.sql.Time(d.getTime());
+
+		flight.setArrivalTime(sqlTime);
+
+		flight.setBusinessPrice(Float.parseFloat(request.getParameter("businessprice")));
+
+		flight.setBusinessSeat(Integer.parseInt(request.getParameter("businessseat")));
+
+		try {
+			flight.setDate(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date")));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		flight.setDestination(request.getParameter("destination"));
+
+		try {
+			d = new SimpleDateFormat("HH:mm:ss").parse(request.getParameter("departuretime"));
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		sqlTime = new java.sql.Time(d.getTime());
+
+		flight.setDepartureTime(sqlTime);
+
+		flight.setDuration(Float.parseFloat(request.getParameter("duration")));
+
+		flight.setEconomyPrice(Float.parseFloat(request.getParameter("economyprice")));
+
+		flight.setEconomySeat(Integer.parseInt(request.getParameter("economyseat")));
+
+		flight.setFlightId(request.getParameter("flightid"));
+
+		session.setAttribute("selectedflight", flight);
+
+		User user = (User) session.getAttribute("user");
+		if (user != null) {
+
+			System.out.println(user.getContact() + "flightdetails");
+
+			if (button.equals("reserve")) {
+
+				System.out.println("to block ");
+
+			}
+
+			else if (button.equals("prebook")) {
+
+				System.out.println("to prebook");
+
+			}
+
+		}
+
+		else if (user == null) {
+			
+			System.out.println("non user");
+			
+			dispatch = request.getRequestDispatcher("views/signup.jsp");
+			dispatch.forward(request, response);
+			
+			
+
+		}
+
+	}
+
+}

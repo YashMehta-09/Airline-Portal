@@ -58,12 +58,12 @@ public class Flight implements Serializable {
 		super();
 	}
 
-	public Flight(String flightId, String arilineName, String destination, String source, Date date, Time departureTime,
+	public Flight(String flightId, String airlineName, String destination, String source, Date date, Time departureTime,
 			Time arrivalTime, float duration, int businessSeat, int economySeat, float businessPrice,
 			float economyPrice) {
 		super();
 		this.flightId = flightId;
-		this.airlineName = arilineName;
+		this.airlineName = airlineName;
 		this.destination = destination;
 		this.source = source;
 		this.date = date;
@@ -84,12 +84,12 @@ public class Flight implements Serializable {
 		this.flightId = flightId;
 	}
 
-	public String getArilineName() {
+	public String getAirlineName() {
 		return airlineName;
 	}
 
-	public void setArilineName(String arilineName) {
-		this.airlineName = arilineName;
+	public void setAirlineName(String airlineName) {
+		this.airlineName = airlineName;
 	}
 
 	public String getDestination() {

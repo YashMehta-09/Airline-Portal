@@ -33,14 +33,10 @@ public class InitializerController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		System.out.println("Initialize");
+		System.out.println("Initialized");
 		CityBO cityBO = new CityBO();
-		List<Cities> cityList  = cityBO.cityRecords();
-		/*List<String> cityList = new ArrayList<String>();
-		cityList.add("KOLKATA(CCU)");
-		cityList.add("JAIPUR(JAI)");*/
-		//cityList.add("MUMBAI(BOM)");
 		
+		List<Cities> cityList  = cityBO.cityRecords();
 		RequestDispatcher dispatch = request.getRequestDispatcher("Index.jsp");
 		request.setAttribute("citylist", cityList);
 		dispatch.forward(request, response);

@@ -1,0 +1,288 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%@ page import="java.util.*"%>
+
+<%@page import="com.airline.model.*"%>
+
+<%@page import="com.airline.controller.*"%>
+
+
+
+
+
+<!doctype html>
+
+<html>
+
+<head>
+
+<style>
+body {
+	background: black
+		url(https://jackrugile.com/images/misc/noise-diagonal.png);
+	color: #444;
+	font: 100%/30px 'Helvetica Neue', helvetica, arial, sans-serif;
+	text-shadow: 0 1px 0 #fff;
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+table {
+	background: #f5f5f5;
+	border-collapse: separate;
+	box-shadow: inset 0 1px 0 #fff;
+	font-size: 12px;
+	line-height: 24px;
+	margin: 30px auto;
+	text-align: left;
+	width: 800px;
+}
+
+th {
+	background: url(https://jackrugile.com/images/misc/noise-diagonal.png),
+		linear-gradient(#777, #444);
+	border-left: 1px solid #555;
+	border-right: 1px solid #777;
+	border-top: 1px solid #555;
+	border-bottom: 1px solid #333;
+	box-shadow: inset 0 1px 0 #999;
+	color: #fff;
+	font-weight: bold;
+	padding: 10px 15px;
+	position: relative;
+	text-shadow: 0 1px 0 #000;
+}
+
+th:after {
+	background: linear-gradient(rgba(255, 255, 255, 0),
+		rgba(255, 255, 255, .08));
+	content: '';
+	display: block;
+	height: 25%;
+	left: 0;
+	margin: 1px 0 0 0;
+	position: absolute;
+	top: 25%;
+	width: 100%;
+}
+
+th:first-child {
+	border-left: 1px solid #777;
+	box-shadow: inset 1px 1px 0 #999;
+}
+
+th:last-child {
+	box-shadow: inset -1px 1px 0 #999;
+}
+
+td {
+	border-right: 1px solid #fff;
+	border-left: 1px solid #e8e8e8;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #e8e8e8;
+	padding: 10px 15px;
+	position: relative;
+	transition: all 300ms;
+}
+
+td:first-child {
+	box-shadow: inset 1px 0 0 #fff;
+}
+
+td:last-child {
+	border-right: 1px solid #e8e8e8;
+	box-shadow: inset -1px 0 0 #fff;
+}
+
+tr {
+	background: url(https://jackrugile.com/images/misc/noise-diagonal.png);
+}
+
+tr:nth-child(odd) td {
+	background: #f1f1f1
+		url(https://jackrugile.com/images/misc/noise-diagonal.png);
+}
+
+tr:last-of-type td {
+	box-shadow: inset 0 -1px 0 #fff;
+}
+
+tr:last-of-type td:first-child {
+	box-shadow: inset 1px -1px 0 #fff;
+}
+
+tr:last-of-type td:last-child {
+	box-shadow: inset -1px -1px 0 #fff;
+}
+
+tbody:hover td {
+	color: transparent;
+	text-shadow: 0 0 3px #aaa;
+}
+
+tbody:hover tr:hover td {
+	color: #444;
+	text-shadow: 0 1px 0 #fff;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+	<%
+		User user = (User) session.getAttribute("user");
+
+		if (user != null)
+
+		{
+	%>
+
+	<h2><%=user.getEmailId()%></h2>
+
+	<%
+		}
+	%>
+
+	<center>
+
+		<h1 style="color: white">Flight List</h1>
+
+	</center>
+
+	<table>
+
+		<thead>
+
+			<tr>
+				<th>Flight Id</th>
+				<th>Airline Name</th>
+				<th>Departure</th>
+				<th>Arrival</th>
+
+				<th>Date</th>
+				<th>Departure Time</th>
+				<th>Arrival Time</th>
+				<th>Duration</th>
+
+				<th>Business Seat</th>
+				<th>Business Seat Price</th>
+				<th>Economy Seat</th>
+
+				<th>Economy Seat Price</th>
+				<th>Booking Status</th>
+				<th>ReserveSeat</th>
+				<th>PrebookSeat</th>
+			</tr>
+
+			<tr>
+		</thead>
+
+		<tbody>
+
+			<%
+				List<Flight> flightlist = (List<Flight>) session.getAttribute("flights");
+
+				for (Flight f : flightlist) {
+			%>
+
+			<td><%=f.getFlightId()%></td>
+
+			<td><%=f.getAirlineName()%></td>
+
+			<td><%=f.getSource()%></td>
+
+			<td><%=f.getDestination()%></td>
+
+			<td><%=f.getDate()%></td>
+
+			<td><%=f.getDepartureTime()%></td>
+
+			<td><%=f.getArrivalTime()%></td>
+
+			<td><%=f.getDuration()%></td>
+
+			<td><%=f.getBusinessSeat()%></td>
+
+			<td><%=f.getBusinessPrice()%></td>
+
+			<td><%=f.getEconomySeat()%></td>
+
+			<td><%=f.getEconomyPrice()%></td>
+
+			<form method="get" action="FlightDetailsController">
+
+				<td>
+					<button type="submit" class="btn btn-success"
+						style="background-color: #32CD32;" name="button" value=booknow>BOOK
+						NOW</button>
+				</td>
+
+				<td>
+					<button type="submit" class="btn btn-success"
+						style="background-color: #32CD32;" name="button" value=reserve>Reserve
+						Now</button>
+				</td>
+
+				<td>
+					<button type="submit" class="btn btn-success"
+						style="background-color: #32CD32;" name="button" value="prebook">Prebook
+						Now</button>
+				</td> <input type="hidden" name="flightid" value=<%=f.getFlightId()%>>
+				<input type="hidden" name="airlinename"
+					value=<%=f.getAirlineName()%>> <input type="hidden"
+					name="source" value=<%=f.getSource()%>> <input
+					type="hidden" name="destination" value=<%=f.getDestination()%>>
+				<input type="hidden" name="date" value=<%=f.getDate()%>> <input
+					type="hidden" name="departuretime" value=<%=f.getDepartureTime()%>>
+				<input type="hidden" name="arrivaltime"
+					value=<%=f.getArrivalTime()%>> <input type="hidden"
+					name="duration" value=<%=f.getDuration()%>> <input
+					type="hidden" name="businessseat" value=<%=f.getBusinessSeat()%>>
+				<input type="hidden" name="businessprice"
+					value=<%=f.getBusinessPrice()%>> <input type="hidden"
+					name="economyseat" value=<%=f.getEconomySeat()%>> <input
+					type="hidden" name="economyprice" value=<%=f.getEconomyPrice()%>>
+
+
+
+
+
+			</form>
+
+
+
+
+
+			</tr>
+
+
+
+
+
+
+
+			<%
+				}
+			%>
+
+
+
+		</tbody>
+
+	</table>
+
+
+
+</body>
+
+</html>

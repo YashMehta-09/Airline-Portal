@@ -1,0 +1,22 @@
+package com.airline.dao;
+
+import com.airline.model.Ticket;
+
+public class TicketDetailsDAO implements TicketDAO {
+
+	private SessionFactory sessionfactory;
+
+	public TicketDetailsDao() {
+
+		sessionfactory=HibernateUtil.getSessionFactory();
+
+
+
+	}
+
+	public boolean createTicket(Ticket ticket) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

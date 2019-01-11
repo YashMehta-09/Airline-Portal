@@ -27,7 +27,7 @@ public class FlightRecordsDAO implements FlightDAO {
 		Date date = flight.getDate();
 
 		
-		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+		//java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 		
 		String hql = "from Flight f where f.destination=:d and f.source=:s and f.date=:dt";
 		Query query = session.createQuery(hql);
