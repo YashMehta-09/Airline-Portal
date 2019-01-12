@@ -78,15 +78,18 @@ public class FlightDetailsController extends HttpServlet {
 			
 			if(booked!=null)
 			{
-				button=booked;
+				button="Booked "+booked;
+				System.out.println(button);
 			}
 			else if(reserve!=null)
 			{
-				button=reserve;
+				button="Reserve "+reserve;
+				System.out.println(button);
 			}
 			else if(preBook!=null)
 			{
-				button=preBook;
+				button="PreBook "+preBook;
+				System.out.println(button);
 			}
 			
 			Flight flight = new Flight();
@@ -226,21 +229,50 @@ public class FlightDetailsController extends HttpServlet {
 					boolean status  = bookingCheck.concessionCheck(date);
 					if(status)
 					{
+						float newPrice = 0 ;
+						
 						if("Economy".equals(booked))
 						{
-							System.out.println("Economy");
+							//System.out.println("Economy");
 							
-							float newPrice = bookingCheck.giveConcession(economyPrice);
+							newPrice = bookingCheck.giveConcession(economyPrice);
 							System.out.println(newPrice);
 						}
 						else if("Business".equals(booked))
 						{
-							System.out.println("Business");
+							//System.out.println("Business");
 							
-							float newPrice = bookingCheck.giveConcession(businessPrice);
+							newPrice = bookingCheck.giveConcession(businessPrice);
 							System.out.println(newPrice);
 						}
+						
+						session.setAttribute("price", newPrice);
 					}
+					else
+					{
+						float oldPrice = 0 ;
+								
+						if("Economy".equals(booked))
+						{
+							//System.out.println("Economy");
+							
+							oldPrice = economyPrice;
+							System.out.println(oldPrice);
+							
+						}						
+						else if("Business".equals(booked))
+						{
+							//System.out.println("Business");
+							
+							oldPrice = businessPrice;
+							System.out.println(oldPrice);
+							
+						}
+						session.setAttribute("price", oldPrice);
+					}
+					
+					dispatch = request.getRequestDispatcher("views/passenger.jsp");
+					dispatch.forward(request, response);
 				}
 
 			}

@@ -14,17 +14,17 @@
 <style>
 
 
-body { background-image: linear-gradient(#aaa 25%, #000);}
+body { background-image: linear-gradient(#abc 100%, #000);}
 
 h1, table { text-align: center; }
 
-table {border-collapse: collapse;  width: 70%; margin: 0 auto 5rem;}
+table {border-collapse: collapse;  width: 70%; margin: 0 auto 7rem;}
 
-th, td { padding: 0.5rem; font-size: 1.3rem; }
+th, td { padding: 0.2rem; font-size: 1.3rem; }
 
 tr {background: hsl(50, 50%, 80%); }
 
-tr, td { transition: .4s ease-in; } 
+tr, td { transition: .2s ease-in; } 
 
 tr:first-child {background: hsla(12, 100%, 40%, 0.5); }
 
@@ -33,7 +33,7 @@ tr:nth-child(even) { background: hsla(50, 50%, 80%, 0.7); }
 td:empty {background: hsla(50, 25%, 60%, 0.7); }
 
 tr:hover:not(#firstrow), tr:hover td:empty {background: #ff0; pointer-events: visible;}
-tr:hover:not(#firstrow) { transform: scale(1.2); font-weight: 700; box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.5);}
+tr:hover:not(#firstrow) { transform: scale(1.05); font-weight: 500; box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.5);}
 </style>
 </head>
 <body>
@@ -171,7 +171,8 @@ tr:hover:not(#firstrow) { transform: scale(1.2); font-weight: 700; box-shadow: 0
 				<%
 					}
 				%>	
-				</td> <input type="hidden" name="flightid" value=<%=f.getFlightId()%>>
+				</td>
+				 <input type="hidden" name="flightid" value=<%=f.getFlightId()%>>
 				<input type="hidden" name="airlinename"
 					value=<%=f.getAirlineName()%>> <input type="hidden"
 					name="source" value=<%=f.getSource()%>> <input

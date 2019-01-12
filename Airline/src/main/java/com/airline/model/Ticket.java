@@ -20,11 +20,11 @@ public class Ticket{
 	private int ticketId;
 	
 	@OneToOne
-	@JoinColumn (name="emailId")
+	@JoinColumn (name="emailId",nullable=false)
 	private User user;
 	
 	@OneToOne
-	@JoinColumn (name="flightId")
+	@JoinColumn (name="flightId",nullable=false)
 	private Flight flight;
 		
 	@Column(nullable=false)
