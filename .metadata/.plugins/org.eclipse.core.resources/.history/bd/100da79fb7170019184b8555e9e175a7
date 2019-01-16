@@ -1,0 +1,6 @@
+function onCheck()
+{
+	var passenger = document.getElementById("passenger").value;
+	alert(passenger);
+	return true;
+}

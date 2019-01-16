@@ -1,0 +1,3 @@
+Hibernate: create table Ticket (ticketId integer not null auto_increment, passengerCount integer not null, status varchar(255) not null, flightId varchar(255), emailId varchar(255), primary key (ticketId)) engine=InnoDB
+Hibernate: alter table Ticket add constraint FKqmay97bdjdk2xbu295kj3chii foreign key (flightId) references Flight (flightId)
+Hibernate: alter table Ticket add constraint FKef5e1s959fqr19dlrriyt15sb foreign key (emailId) references User (emailId)

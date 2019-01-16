@@ -23,9 +23,9 @@ public class TicketDetailsDAO implements TicketDAO {
 
 		session.beginTransaction();
 
-		System.out.println(ticket.getPassengerCount());
+		/*System.out.println(ticket.getPassengerCount());
 
-		System.out.println(ticket.getFlight().getAirlineName());
+		System.out.println(ticket.getFlight().getAirlineName());*/
 
 		try {
 

@@ -1,0 +1,31 @@
+function onCheck()
+{
+	var passenger = document.getElementById("passenger").value;
+	
+	var status = true;
+	
+	for(var i=0;i<passenger;i++)
+	{
+		var salutation = document.getElementById("salutation"+(i+1)).value;
+		var firstname = document.getElementById("firstname"+(i+1)).value;
+		var lastname = document.getElementById("lastname"+(i+1)).value;
+		
+		if(salutation.length == 0)
+		{
+			status=false;
+			alert("Salutation "+(i+1)+" cannot be Empty");
+		}
+		if(firstname.length == 0)
+		{
+			status=false;
+			document.getElementById("firstname"+(i+1)).innerText = "*This Field is Mandatory*";
+		}
+		if(lastname.length == 0)
+		{
+			status=false;
+			document.getElementById("lastname"+(i+1)).innerText = "*This Field is Mandatory*";
+		}
+		
+	}
+	return false;
+}

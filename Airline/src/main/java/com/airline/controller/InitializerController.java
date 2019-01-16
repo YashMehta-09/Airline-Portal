@@ -24,7 +24,7 @@ public class InitializerController extends HttpServlet {
      */
     public InitializerController() {
         super();
-        // TODO Auto-generated constructor stub
+        // TODO Auto-generated constructor study
     }
 
 	/**

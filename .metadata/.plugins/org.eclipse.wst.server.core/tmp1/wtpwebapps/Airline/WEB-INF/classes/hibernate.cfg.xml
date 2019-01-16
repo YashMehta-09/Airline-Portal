@@ -16,5 +16,7 @@
         <mapping class="com.airline.model.Flight"/>
         <mapping class="com.airline.model.Cities"/>
         <mapping class="com.airline.model.Ticket"/>
+        <mapping class="com.airline.model.Passenger"/>
+        <mapping class="com.airline.model.SpecialService"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,0 +1,18 @@
+function onCheck()
+{
+	var passenger = document.getElementById("passenger").value;
+	alert(passenger);
+	
+	for(var i=0;i<passenger;i++)
+	{
+		var salutation = document.getElementById("salutation"+(i+1)).value;
+		var firstname = document.getElementById("firstname"+(i+1)).value;
+		var lastname = document.getElementById("lastname"+(i+1)).value;
+		
+		if(salutation.length == 0)
+		{
+			salutation
+		}
+	}
+	return false;
+}

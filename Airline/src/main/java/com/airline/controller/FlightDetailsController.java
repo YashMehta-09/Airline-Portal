@@ -156,6 +156,7 @@ public class FlightDetailsController extends HttpServlet {
 		   	    ticket.setStatus(button);
 	   	    	ticket.setUser(user);
 	   	    	
+	   	    	
 				if (reserve!=null) {
 
 					boolean status = bookingCheck.validateBookingReserve(date);
@@ -270,6 +271,8 @@ public class FlightDetailsController extends HttpServlet {
 						}
 						session.setAttribute("price", oldPrice);
 					}
+					
+					session.setAttribute("ticket", ticket);
 					
 					dispatch = request.getRequestDispatcher("views/passenger.jsp");
 					dispatch.forward(request, response);
