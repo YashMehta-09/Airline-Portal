@@ -3,8 +3,16 @@ package com.airline.bo;
 import com.airline.dao.MySqlDAO;
 import com.airline.model.User;
 
+/**
+ * @author yasha
+ *
+ */
 public class UserBO {
 
+	/**
+	 * @param user
+	 * @return status
+	 */
 	public boolean create(User user) {
 		// TODO Auto-generated method stub
 		
@@ -14,6 +22,10 @@ public class UserBO {
 		return status;
 	}
 
+	/**
+	 * @param user
+	 * @return status
+	 */
 	public boolean validate(User user) {
 		// TODO Auto-generated method stub
 		

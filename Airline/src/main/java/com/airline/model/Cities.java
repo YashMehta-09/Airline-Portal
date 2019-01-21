@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author yasha
+ *
+ */
 @Entity
 @Table
 public class Cities implements Serializable {
@@ -21,26 +25,49 @@ public class Cities implements Serializable {
 	private String abbreviations;
 	
 	
+	
+	/**
+	 * @return cityName
+	 */
 	public String getCityName() {
 		return cityName;
 	}
+	/**
+	 * @param cityName
+	 */
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
+	/**
+	 * @return abbreviations
+	 */
 	public String getAbbreviations() {
 		return abbreviations;
 	}
+	/**
+	 * @param abbreviations
+	 */
 	public void setAbbreviations(String abbreviations) {
 		this.abbreviations = abbreviations;
 	}
+	/**
+	 * @return abbreviations
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	/**
+	 * @param cityName
+	 * @param abbreviations
+	 */
 	public Cities(String cityName, String abbreviations) {
 		super();
 		this.cityName = cityName;
 		this.abbreviations = abbreviations;
 	}
+	/**
+	 * 
+	 */
 	public Cities() {
 		super();
 	}

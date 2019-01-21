@@ -5,8 +5,16 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+/**
+ * @author yasha
+ *
+ */
 public class BookingCheck {
 
+	/**
+	 * @param flightDate
+	 * @return status
+	 */
 	public boolean validateBookingReserve(Date flightDate) {
 
 		// LocalDate currentDate = LocalDate.now(); // 2016-06-17
@@ -49,6 +57,10 @@ public class BookingCheck {
 
 	}
 
+	/**
+	 * @param flight
+	 * @return status
+	 */
 	public boolean validatePrebooking(Date flight) {
 
 		System.out.println(flight + "flight");
@@ -91,6 +103,10 @@ public class BookingCheck {
 
 	}
 	
+	/**
+	 * @param date
+	 * @return status
+	 */
 	public boolean concessionCheck(Date date)
 	{
 		boolean status = false;
@@ -127,6 +143,10 @@ public class BookingCheck {
 
 	}
 	
+	/**
+	 * @param price
+	 * @return price
+	 */
 	public float giveConcession(float price)
 	{
 		price = (float) (price-(0.25*price));

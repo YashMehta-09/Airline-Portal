@@ -10,10 +10,17 @@ import org.hibernate.query.Query;
 import com.airline.model.Flight;
 import com.airline.util.HibernateUtil;
 
+/**
+ * @author yasha
+ *
+ */
 public class FlightRecordsDAO implements FlightDAO {
 
 	private SessionFactory sessionfactory;
 
+	/**
+	 * 
+	 */
 	public FlightRecordsDAO() {
 		sessionfactory = HibernateUtil.getSessionFactory();
 	}

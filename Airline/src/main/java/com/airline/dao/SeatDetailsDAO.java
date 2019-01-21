@@ -12,12 +12,19 @@ import com.airline.util.HibernateUtil;
 
 
 
+/**
+ * @author yasha
+ *
+ */
 public class SeatDetailsDAO {
 	
 	
 	
 	private SessionFactory sessionFactory;
 
+	/**
+	 * 
+	 */
 	public SeatDetailsDAO() {
 		
 		sessionFactory = HibernateUtil.getSessionFactory();
@@ -26,6 +33,12 @@ public class SeatDetailsDAO {
 	
 	
 	
+	/**
+	 * @param updatedSeatCount
+	 * @param flightId
+	 * @param type
+	 * @return status
+	 */
 	@SuppressWarnings("deprecation")
 	public boolean seatUpdate(int updatedSeatCount,String flightId,String type) {
 		

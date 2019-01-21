@@ -7,10 +7,17 @@ import org.hibernate.SessionFactory;
 import com.airline.model.Ticket;
 import com.airline.util.HibernateUtil;
 
+/**
+ * @author yasha
+ *
+ */
 public class TicketDetailsDAO implements TicketDAO {
 
 	private SessionFactory sessionfactory;
 
+	/**
+	 * 
+	 */
 	public TicketDetailsDAO() {
 
 		sessionfactory = HibernateUtil.getSessionFactory();

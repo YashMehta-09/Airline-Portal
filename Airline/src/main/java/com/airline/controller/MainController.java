@@ -26,6 +26,9 @@ import com.airline.model.User;
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 
+	 */
 	public MainController() {
 		super();
 

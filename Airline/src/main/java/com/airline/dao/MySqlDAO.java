@@ -7,10 +7,17 @@ import org.hibernate.SessionFactory;
 import com.airline.model.User;
 import com.airline.util.HibernateUtil;
 
+/**
+ * @author yasha
+ *
+ */
 public class MySqlDAO implements UserDAO {
 
 	private SessionFactory sessionFactory;
 	
+	/**
+	 * 
+	 */
 	public MySqlDAO()
 	{
 		sessionFactory = HibernateUtil.getSessionFactory();

@@ -8,6 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author yasha
+ *
+ */
 @Entity
 @Table
 public class Visa implements Serializable {
@@ -31,54 +35,81 @@ public class Visa implements Serializable {
 
 	
 
+	/**
+	 * @return visaId
+	 */
 	public String getVisaId() {
 		return visaId;
 	}
 
 
 
+	/**
+	 * @param visaId
+	 */
 	public void setVisaId(String visaId) {
 		this.visaId = visaId;
 	}
 
 
 
+	/**
+	 * @return country
+	 */
 	public String getCountry() {
 		return country;
 	}
 
 
 
+	/**
+	 * @param country
+	 */
 	public void setCountry(String country) {
 		this.country = country;
 	}
 
 
 
+	/**
+	 * @return issueDate
+	 */
 	public Date getIssueDate() {
 		return issueDate;
 	}
 
 
 
+	/**
+	 * @param issueDate
+	 */
 	public void setIssueDate(Date issueDate) {
 		this.issueDate = issueDate;
 	}
 
 
 
+	/**
+	 * @return expiryDate
+	 */
 	public Date getExpiryDate() {
 		return expiryDate;
 	}
 
 
 
+	/**
+	 * @param expiryDate
+	 */
 	public void setExpiryDate(Date expiryDate) {
 		this.expiryDate = expiryDate;
 	}
 
 
 
+	/**
+	 * @return serialversionUID
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -86,6 +117,12 @@ public class Visa implements Serializable {
 
 	
 
+	/**
+	 * @param visaId
+	 * @param country
+	 * @param issueDate
+	 * @param expiryDate
+	 */
 	public Visa(String visaId, String country, Date issueDate, Date expiryDate) {
 		super();
 		this.visaId = visaId;
@@ -96,6 +133,9 @@ public class Visa implements Serializable {
 
 
 
+	/**
+	 * 
+	 */
 	public Visa() {
 		super();
 	}

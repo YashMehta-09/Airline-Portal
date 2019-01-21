@@ -2,11 +2,22 @@ package com.airline.bo;
 
 import com.airline.dao.SeatDetailsDAO;
 
+/**
+ * @author yasha
+ *
+ */
 public class SeatBookBO {
 	
 	
 	
 	
+	/**
+	 * @param flightSeat
+	 * @param flightId
+	 * @param passengerCount
+	 * @param type
+	 * @return record
+	 */
 	public boolean updateSeat(int flightSeat,String flightId,int passengerCount,String type) {
 		
 		

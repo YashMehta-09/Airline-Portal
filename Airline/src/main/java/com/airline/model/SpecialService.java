@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author yasha
+ *
+ */
 @Entity
 @Table
 public class SpecialService implements Serializable{
@@ -34,46 +38,83 @@ public class SpecialService implements Serializable{
 	@Column
 	private String handicapped;
 
+	/**
+	 * @return specialServiceId
+	 */
 	public int getSpecialServiceId() {
 		return specialServiceId;
 	}
 
+	/**
+	 * @param specialServiceId
+	 */
 	public void setSpecialServiceId(int specialServiceId) {
 		this.specialServiceId = specialServiceId;
 	}
 
+	/**
+	 * @return seatType1
+	 */
 	public String getSeatType1() {
 		return seatType1;
 	}
 
+	/**
+	 * @param seatType1
+	 */
 	public void setSeatType1(String seatType1) {
 		this.seatType1 = seatType1;
 	}
 
+	/**
+	 * @return seatType2
+	 */
 	public String getSeatType2() {
 		return seatType2;
 	}
 
+	/**
+	 * @param seatType2
+	 */
 	public void setSeatType2(String seatType2) {
 		this.seatType2 = seatType2;
 	}
 
+	/**
+	 * @return mealType
+	 */
 	public String getMealType() {
 		return mealType;
 	}
 
+	/**
+	 * @param mealType
+	 */
 	public void setMealType(String mealType) {
 		this.mealType = mealType;
 	}
 
+	/**
+	 * @return handicapped
+	 */
 	public String getHandicapped() {
 		return handicapped;
 	}
 
+	/**
+	 * @param handicapped
+	 */
 	public void setHandicapped(String handicapped) {
 		this.handicapped = handicapped;
 	}
 
+	/**
+	 * @param specialServiceId
+	 * @param seatType1
+	 * @param seatType2
+	 * @param mealType
+	 * @param handicapped
+	 */
 	public SpecialService(int specialServiceId, String seatType1, String seatType2, String mealType,
 			String handicapped) {
 		super();
@@ -84,6 +125,9 @@ public class SpecialService implements Serializable{
 		this.handicapped = handicapped;
 	}
 
+	/**
+	 * 
+	 */
 	public SpecialService() {
 		super();
 	}
