@@ -5,7 +5,6 @@
 <fullyQualifiedTypeName name="com.airline.dao.FlightRecordsDao"/>
 <fullyQualifiedTypeName name="org.hibernate.query.Query"/>
 <fullyQualifiedTypeName name="com.airline.model.Flight"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.text.ParseException"/>
 <fullyQualifiedTypeName name="com.airline.bo.FlightBO"/>
 <fullyQualifiedTypeName name="java.sql.Time"/>
@@ -13,7 +12,6 @@
 <fullyQualifiedTypeName name="com.airline.bo.CityBO"/>
 <fullyQualifiedTypeName name="com.airline.dao.CityRecordsDAO"/>
 <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
-<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="com.airline.dao.TicketDetailsDAO"/>
 <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
 <fullyQualifiedTypeName name="com.airline.util.HibernateUtil"/>
@@ -34,9 +32,13 @@
 <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
 <fullyQualifiedTypeName name="com.airline.model.Passenger"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.airline.model.Ticket"/>
-<fullyQualifiedTypeName name="com.airline.bo.TicketBO"/>
+<fullyQualifiedTypeName name="com.airline.model.SpecialService"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="com.airline.model.Visa"/>
+<fullyQualifiedTypeName name="com.airline.bo.TicketBO"/>
 </qualifiedTypeNameHistroy>

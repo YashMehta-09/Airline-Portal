@@ -157,7 +157,7 @@ a{
         </center>
   <div class="module">
     
-    <form method="post" class="form" action="FlightDetailsController">
+    <form method="post" class="form" action="CheckGuestController">
         
       <input type="email" name="email" placeholder="Your Email" class="textbox" />
       <input type="text"  name="contact" placeholder="Contact Number" class="textbox" />

@@ -40,30 +40,28 @@
 
 	<div class="wrapper">
 		<div class="inner">
-			<form action="">
+			<form action="TicketGenerateController" method="post">
 				<h3>Enter your visa information</h3>
 				<div class="form-row">
 					<div class="form-wrapper">
 						<label for=""> country that issued visa *</label> <input
-							type="text" class="form-control" placeholder="country">
+							type="text" class="form-control" name="countryname" placeholder="Country">
 					</div>
 					<div class="form-wrapper">
 						<label for="">Visa identity number(unique) *</label> <input
-							type="text" class="form-control" placeholder="visa number">
+							type="text" class="form-control" name="visaid"placeholder="Visa Id">
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-wrapper">
 						<label for=""> Date of the visa issue *</label> <span
 							class="lnr lnr-calendar-full"></span> <input type="date"
-							class="form-control datepicker-here" data-language='en'
-							data-date-format="dd M yyyy" id="dp1">
+							class="form-control datepicker-here" name="issuedate">
 					</div>
 					<div class="form-wrapper">
 						<label for="">Date of the visa expiry*</label> <span
 							class="lnr lnr-calendar-full"></span> <input type="date"
-							class="form-control datepicker-here" data-language='en'
-							data-date-format="dd M yyyy" id="dp2">
+							class="form-control datepicker-here" name="expirydate">
 					</div>
 				</div>
 
@@ -80,9 +78,8 @@
 
 
 
-				<button data-text="Next">
-					<span>Next</span>
-				</button>
+					<button class="submit-btn" name="visa"
+											value="visa">Pay Now</button>
 			</form>
 		</div>
 	</div>

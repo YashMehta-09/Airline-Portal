@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.airline.bo.BookingCheck;
+import com.airline.bo.SeatBookBO;
 import com.airline.bo.TicketBO;
 import com.airline.bo.UserBO;
 import com.airline.model.Flight;
@@ -54,7 +55,13 @@ public class FlightDetailsController extends HttpServlet {
 		Ticket ticket = new Ticket();
 		TicketBO ticketBO = new TicketBO();
 
-		if ("signup".equals(request.getParameter("signup"))) {
+		//Flight flight = new Flight();
+		//String guestButton = null;
+		
+		
+		//Ticket gticket=new Ticket();
+		
+		/*if ("signup".equals(request.getParameter("signup"))) {
 			User user = new User();
 			UserBO userBO = new UserBO();
 
@@ -67,9 +74,25 @@ public class FlightDetailsController extends HttpServlet {
 			System.out.println("New Signup");
 			boolean status = userBO.create(user);
 			System.out.println(status);
-		}
+			
+			
+			//int passengercount=(Integer)session.getAttribute("passenger");
 
-		else {
+			ticket.setUser(user);
+			
+			System.out.println(ticket.getStatus()+"FD");
+			//System.out.println(gstatus+"gstatus");
+			
+			session.setAttribute("ticket", ticket);
+
+			//gticket.setStatus(guestButton);
+			//System.out.println(gstatus);
+			//session.setAttribute("ticket", gticket);
+			dispatch=request.getRequestDispatcher("views/passenger.jsp");
+			dispatch.forward(request, response);
+		}*/
+
+		 
 
 			String button = null;
 			String booked = request.getParameter("Booked");
@@ -91,6 +114,9 @@ public class FlightDetailsController extends HttpServlet {
 				button="PreBook "+preBook;
 				System.out.println(button);
 			}
+			
+			
+			
 			
 			Flight flight = new Flight();
 
@@ -143,17 +169,19 @@ public class FlightDetailsController extends HttpServlet {
 			session.setAttribute("selectedflight", flight);
 			
 			BookingCheck bookingCheck = new BookingCheck();
+			int passengercount=(Integer)session.getAttribute("passenger");
 			
-			User user = (User) session.getAttribute("user");
 			
+			ticket.setFlight(flight);
+	   	    ticket.setPassengerCount(passengercount);
+	   	    ticket.setStatus(button);
+	   	 User user = (User) session.getAttribute("user");
 			if (user != null) {
 
 				System.out.println(user.getContact() + " flightdetails");
-				int passengercount=(Integer)session.getAttribute("passenger");
+				
 
-				ticket.setFlight(flight);
-		   	    ticket.setPassengerCount(passengercount);
-		   	    ticket.setStatus(button);
+				
 	   	    	ticket.setUser(user);
 	   	    	
 	   	    	
@@ -172,6 +200,31 @@ public class FlightDetailsController extends HttpServlet {
 			        	 if(bookingStatus) {
 
 			        		 System.out.println("successfully update");
+			        		 SeatBookBO seat=new SeatBookBO();
+			        		 boolean seatupdate=false;
+			        		 if(button.contains("Economy")) {
+			        			System.out.println(button); 
+			        			
+			        			String type="Economy";
+			        			seatupdate=seat.updateSeat(economySeat,flightId,passengercount,type);
+			        			
+			        			System.out.println(seatupdate);
+			        			
+			        			
+			        		 
+			        		 }
+			        		 else {
+			        			 
+			        			 String type="Business";
+			        			 seatupdate=seat.updateSeat(businessSeat, flightId,passengercount,type);
+			        			 
+			        			 System.out.println(seatupdate);
+			        			 
+			        		 }
+			        		 
+			        		 
+			        		 
+			        		 
 
 			        	 }
 
@@ -182,12 +235,17 @@ public class FlightDetailsController extends HttpServlet {
 			        	 }
 						//System.out.println("allowed");
 
+			        	 
+			        	 dispatch=request.getRequestDispatcher("views/reservebooksuccess.jsp");
+			        	 dispatch.forward(request, response);
 					}
 
 					else {
 
 						System.out.println("not allow");
 
+						dispatch=request.getRequestDispatcher("views/reservebookfailed.jsp");
+			        	 dispatch.forward(request, response);
 					}
 
 				}
@@ -207,6 +265,33 @@ public class FlightDetailsController extends HttpServlet {
 			        	 if(bookingStatus) {
 
 			        		 System.out.println("successfully update");
+			        		 
+			        		 SeatBookBO seat=new SeatBookBO();
+			        		 
+			        		 boolean seatupdate=false;
+			        		 
+			        		 if(button.contains("Economy")) {
+				        			System.out.println(button); 
+				        			
+				        			String type="Economy";
+				        			seatupdate=seat.updateSeat(economySeat,flightId,passengercount,type);
+				        			
+				        			System.out.println(seatupdate);
+				        			if(seatupdate) {
+				        				
+				        			}
+				        			
+				        		 
+				        		 }
+				        		 else {
+				        			 
+				        			 String type="Business";
+				        			 seatupdate=seat.updateSeat(businessSeat, flightId,passengercount,type);
+				        			 
+				        			 System.out.println(seatupdate);
+				        			 
+				        		 }
+			        		 
 
 			        	 }
 
@@ -283,7 +368,23 @@ public class FlightDetailsController extends HttpServlet {
 			else if (user == null) {
 
 				System.out.println("non user");
-
+				
+			
+				
+				System.out.println(ticket.getPassengerCount()+"FD ");
+				System.out.println(ticket.getFlight().getAirlineName());
+				
+				
+				if(ticket.getStatus().contains("Business")) {
+					session.setAttribute("price", ticket.getFlight().getBusinessPrice());
+				}
+				else {
+					session.setAttribute("price", ticket.getFlight().getEconomyPrice());
+				}
+				
+				session.setAttribute("ticket",ticket);
+				
+System.out.println(ticket.getStatus());
 				dispatch = request.getRequestDispatcher("views/signup.jsp");
 				dispatch.forward(request, response);
 
@@ -292,4 +393,4 @@ public class FlightDetailsController extends HttpServlet {
 
 	}
 
-}
+

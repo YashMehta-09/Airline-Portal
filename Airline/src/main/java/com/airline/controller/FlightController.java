@@ -98,7 +98,8 @@ public class FlightController extends HttpServlet {
 		session.setAttribute("passenger", passenger);
 
 		if (flightList.size() == 0) {
-
+			dispatch=request.getRequestDispatcher("views/noflight.jsp");
+			dispatch.forward(request, response);
 		} else {
 			dispatch = request.getRequestDispatcher("views/flight.jsp");
 			dispatch.forward(request, response);

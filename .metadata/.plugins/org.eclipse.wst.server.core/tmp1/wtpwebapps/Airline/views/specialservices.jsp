@@ -116,13 +116,13 @@
 									<span class="form-label">Seat type 1</span> <select
 										class="form-control" name="seattype1<%=i + 1%>">
 
-										<option value="select<%=i + 1%>">Select</option>
+										<option value="Select">Select</option>
 
-										<option value="window<%=i + 1%>">Window</option>
+										<option value="Window">Window</option>
 
-										<option value="aisle<%=i + 1%>">Aisle</option>
+										<option value="Aisle">Aisle</option>
 
-										<option value="near emergency<%=i + 1%>">Near
+										<option value="Near Emergency">Near
 											Emergency</option>
 
 
@@ -146,13 +146,13 @@
 
 										<optgroup label="Seat Location Type2">
 
-											<option value="select<%=i + 1%>">Select</option>
+											<option value="Select">Select</option>
 
-											<option value="front<%=i + 1%>">Front</option>
+											<option value="Front">Front</option>
 
-											<option value="middle<%=i + 1%>">Middle</option>
+											<option value="Middle">Middle</option>
 
-											<option value="back<%=i + 1%>">Back</option>
+											<option value="Back">Back</option>
 
 
 
@@ -179,11 +179,11 @@
 									<span class="form-label">Meal</span> <select
 										class="form-control" name="meal<%=i + 1%>">
 
-										<option value="select<%=i + 1%>">Select</option>
+										<option value="Select">Select</option>
 
-										<option value="veg<%=i + 1%>">Veg</option>
+										<option value="Veg">Veg</option>
 
-										<option value="nonveg<%=i + 1%>">Non Veg</option>
+										<option value="Non Veg">Non Veg</option>
 
 
 
@@ -208,30 +208,25 @@
 									<span class="form-label"> Handicapped</span> <select
 										class="form-control" name="medical<%=i + 1%>">
 
-										<optgroup label=" Physically disabled">
-
-
 
 											<option value="No<%=i + 1%>">No</option>
 
-										</optgroup>
+										
 
-										<optgroup label="if handicapped">
+											<option value="Wheelchair">Wheelchairs</option>
 
-											<option value="wheelchair<%=i + 1%>">Wheelchairs</option>
+											<option value="Nurses">Nurses</option>
 
-											<option value="nurses<%=i + 1%>">Nurses</option>
+											<option value="Attendants">Attendants</option>
 
-											<option value="attendants<%=i + 1%>">Attendants</option>
-
-											<option value="secial medicines<%=i + 1%>">Special
+											<option value="Special Medicines">Special
 												Medicines</option>
 
 
 
 
 
-										</optgroup>
+										
 
 
 
@@ -251,10 +246,9 @@
 								<div class="form-btn">
 
 
-<p></p>
-
-
-<p></p>
+									<p></p>
+									<p></p>
+									
 									<button class="submit-btn" name="SpecialServices"
 										value="SpecialServices">Choose Special Services</button>
 
@@ -267,11 +261,9 @@
 								<div class="col-md-3">
 
 									<div class="form-btn">
-									
-<p></p>
 
-
-<p></p>
+										<p></p>
+										<p></p>
 
 										<button class="submit-btn" name="SkipSpecialServices"
 											value="SkipSpecialServices">Skip</button>

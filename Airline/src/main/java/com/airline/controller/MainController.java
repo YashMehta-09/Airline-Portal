@@ -3,7 +3,6 @@ package com.airline.controller;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,11 +16,13 @@ import javax.servlet.http.HttpSession;
 import com.airline.bo.CityBO;
 import com.airline.bo.FlightBO;
 import com.airline.bo.UserBO;
-import com.airline.dao.MySqlDAO;
 import com.airline.model.Cities;
 import com.airline.model.Flight;
 import com.airline.model.User;
 
+/**
+ * Servlet implementation class MainController
+ */
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -81,7 +82,7 @@ public class MainController extends HttpServlet {
 			if (status) {
 				CityBO cityBO = new CityBO();
 				List<Cities> cityList  = cityBO.cityRecords();
-				dispatch = request.getRequestDispatcher("views/profile.jsp");
+				dispatch = request.getRequestDispatcher("views/RegistrationSuccess.jsp");
 				session.setAttribute("citylist", cityList);
 				session.setAttribute("user", user);
 				dispatch.forward(request, response);
@@ -142,6 +143,10 @@ public class MainController extends HttpServlet {
 
 			if (flightList.size() == 0) {
 
+				dispatch=request.getRequestDispatcher("views/noflight.jsp");
+				dispatch.forward(request, response);
+				
+				
 			} else {
 				dispatch = request.getRequestDispatcher("views/flight.jsp");
 				//session.setAttribute("user", user);

@@ -49,6 +49,18 @@ public class Ticket implements Serializable{
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="ticketId")
 	private List<Passenger> passengerList;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="visaId")
+	private Visa visa;
+
+	public Visa getVisa() {
+		return visa;
+	}
+
+	public void setVisa(Visa visa) {
+		this.visa = visa;
+	}
 
 	public int getTicketId() {
 		return ticketId;
@@ -106,8 +118,10 @@ public class Ticket implements Serializable{
 		this.passengerList = passengerList;
 	}
 
+
+
 	public Ticket(int ticketId, User user, Flight flight, String status, int passengerCount, float payment,
-			List<Passenger> passengerList) {
+			List<Passenger> passengerList, Visa visa) {
 		super();
 		this.ticketId = ticketId;
 		this.user = user;
@@ -116,6 +130,7 @@ public class Ticket implements Serializable{
 		this.passengerCount = passengerCount;
 		this.payment = payment;
 		this.passengerList = passengerList;
+		this.visa = visa;
 	}
 
 	public Ticket() {

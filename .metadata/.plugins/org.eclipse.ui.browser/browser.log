@@ -9106,3 +9106,22 @@ Jan 14, 2019 16:22:14.79 [10100:10816:0114/162213.915:ERROR:in_progress_cache_im
 Jan 14, 2019 16:22:14.81 [10100:10816:0114/162213.915:ERROR:in_progress_cache_impl.cc(203)] Cache is not initialized, cannot RetrieveEntry.
 Jan 14, 2019 16:22:14.81 [10100:10816:0114/162213.915:ERROR:in_progress_cache_impl.cc(203)] Cache is not initialized, cannot RetrieveEntry.
 Jan 14, 2019 17:15:56.57 [10100:10816:0114/171556.575:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+
+Jan 17, 2019 11:44:11.40 NEW SESSION
+Jan 17, 2019 11:44:11.40 [14988:11428:0117/114411.404:ERROR:connection_factory_impl.cc(408)] Failed to connect to MCS endpoint with error -106
+Jan 17, 2019 11:44:31.99 [14988:11428:0117/114431.989:ERROR:connection_factory_impl.cc(408)] Failed to connect to MCS endpoint with error -106
+Jan 17, 2019 11:44:45.15 [14988:13032:0117/114445.151:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Connection failed (-106).
+Jan 17, 2019 11:44:45.54 [14988:13032:0117/114445.542:ERROR:account_tracker.cc(240)] AccessTokenFetched error: Connection failed (-106).
+Jan 17, 2019 11:45:18.98 [14988:11428:0117/114518.981:ERROR:connection_factory_impl.cc(408)] Failed to connect to MCS endpoint with error -106
+Jan 17, 2019 11:46:44.53 [14988:11428:0117/114644.539:ERROR:connection_factory_impl.cc(408)] Failed to connect to MCS endpoint with error -106
+Jan 17, 2019 11:50:35.67 [14988:11428:0117/115035.676:ERROR:connection_factory_impl.cc(408)] Failed to connect to MCS endpoint with error -106
+Jan 17, 2019 11:56:25.85 [14988:11428:0117/115625.853:ERROR:connection_factory_impl.cc(408)] Failed to connect to MCS endpoint with error -106
+Jan 17, 2019 12:06:25.85 [14988:11428:0117/120625.852:ERROR:connection_factory_impl.cc(408)] Failed to connect to MCS endpoint with error -106
+Jan 17, 2019 13:55:11.53 [14988:13032:0117/135511.532:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+Jan 17, 2019 13:55:16.08 [14988:10744:0117/135511.723:ERROR:get_updates_processor.cc(242)] PostClientToServerMessage() failed during GetUpdates
+Jan 17, 2019 13:55:16.10 [14988:11428:0117/135515.241:ERROR:connection_factory_impl.cc(408)] Failed to connect to MCS endpoint with error -106
+Jan 17, 2019 13:55:40.16 [14988:13032:0117/135540.162:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+Jan 17, 2019 13:55:41.25 [14988:11428:0117/135541.256:ERROR:connection_factory_impl.cc(408)] Failed to connect to MCS endpoint with error -106
+Jan 17, 2019 13:56:05.00 [14988:11428:0117/135605.003:ERROR:connection_factory_impl.cc(408)] Failed to connect to MCS endpoint with error -21
+Jan 17, 2019 13:56:05.02 [14988:10744:0117/135605.003:ERROR:get_updates_processor.cc(242)] PostClientToServerMessage() failed during GetUpdates
+Jan 17, 2019 14:34:22.38 [14988:13032:0117/143422.382:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED

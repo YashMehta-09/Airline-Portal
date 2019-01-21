@@ -2,6 +2,7 @@ package com.airline.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,7 +39,7 @@ public class Passenger implements Serializable{
 	@Column(nullable=false)
 	private String passengerType;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="specialServiceId")
 	private SpecialService specialService;
 

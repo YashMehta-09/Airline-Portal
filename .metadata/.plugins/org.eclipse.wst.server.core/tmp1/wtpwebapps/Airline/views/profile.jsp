@@ -125,7 +125,12 @@
 					<div class="booking-form">
 
 						<form action="FlightController" method="post">
-
+						
+					<%if(user!=null){ %>	
+						
+						
+						<h1 style="color:white">Welcome <%=name %></h1>
+<% }%>
 							<div class="row">
 
 								<div class="col-md-6">
