@@ -21,6 +21,7 @@ public class BookedController extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
+	
     public BookedController() {
         super();
         // TODO Auto-generated constructor stub
@@ -31,7 +32,8 @@ public class BookedController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String profile = request.getParameter("profile");
+		System.out.println(profile);
 	}
 
 	/**
@@ -39,7 +41,7 @@ public class BookedController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession(false);
+		/*HttpSession session = request.getSession(false);
 		RequestDispatcher dispatch = null;
 		Ticket ticket = (Ticket) session.getAttribute("ticket");
 		
@@ -53,7 +55,7 @@ public class BookedController extends HttpServlet {
 			//call to bo for decreasing the seats
 			dispatch = request.getRequestDispatcher("views/success.jsp");
 			dispatch.forward(request, response);
-		}
+		}*/
 	}
 
 }

@@ -147,6 +147,80 @@ a{
 
 
 </style>
+
+<script type="text/javascript">
+function SignUpValidation()
+{
+	var password = document.getElementById("password").value;
+	var email = document.getElementById("email").value;
+	var confirmpassword = document.getElementById("confirmpassword").value;
+	var contact = document.getElementById("contact").value;
+	
+	var status = false;
+	var p=1;
+	var e=1;
+	var cp=1;
+	var c=1;
+	var match=1;
+	
+	if(email.length == 0)
+	{
+		alert("Email is Mandatory");
+	}
+	else
+	{
+		p=0;
+	}
+	if(contact.length == 0 )
+	{
+		alert("Contact is Mandatory");
+	}
+	else
+	{
+		c=0;
+	}
+	if(password.length == 0 )
+	{
+		alert("Password is Mandatory");
+	}
+	else if(password.length < 8)
+	{
+		alert("Password length must be 8 characters minimum");
+	}
+	else
+	{
+		e=0;
+	}
+	if(confirmpassword.length == 0 )
+	{
+		alert("Confirm Password is Mandatory");
+	}
+	else
+	{
+		cp=0;
+	}
+	
+	
+	if(confirmpassword == password)
+	{
+		match=0;
+	}
+	else
+	{
+		alert("Password Mismatch");
+	}
+	
+	if(e==0 && c==0 && p==0 && cp==0 && match==0)
+	{
+		status = true;
+	}
+	
+	return status;
+	
+}
+
+
+</script>
     </head>
     <body>
         
@@ -157,12 +231,12 @@ a{
         </center>
   <div class="module">
     
-    <form method="post" class="form" action="CheckGuestController">
+    <form method="post" class="form" action="CheckGuestController" onSubmit="return SignUpValidation()">
         
-      <input type="email" name="email" placeholder="Your Email" class="textbox" />
-      <input type="text"  name="contact" placeholder="Contact Number" class="textbox" />
-      <input type="password" name="password" placeholder=" Your password" class="textbox" />
-              <input type="password" name="confirmpassword" placeholder=" Re-enter Your password" class="textbox" />
+      <input type="email" name="email" id="email" placeholder="Your Email" class="textbox" />
+      <input type="text"  name="contact" id="contact" placeholder="Contact Number" class="textbox" />
+      <input type="password" name="password" id="password" placeholder=" Your password" class="textbox" />
+              <input type="password" name="confirmpassword" id="confirmpassword" placeholder=" Re-enter Your password" class="textbox" />
 
       <input type="submit" name="signup" value="signup" class="button" />
     </form>

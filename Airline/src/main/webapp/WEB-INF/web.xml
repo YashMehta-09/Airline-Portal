@@ -46,6 +46,13 @@
   	<description></description>
   	<servlet-class>com.airline.controller.CheckGuestController</servlet-class>
   </servlet>
+  
+  <servlet>
+  	<servlet-name>BookedController</servlet-name>
+  	<display-name>BookedController</display-name>
+  	<description></description>
+  	<servlet-class>com.airline.controller.BookedController</servlet-class>
+  </servlet>
  
   <servlet-mapping>
   	<servlet-name>MainController</servlet-name>
@@ -74,6 +81,10 @@
   <servlet-mapping>
   	<servlet-name>CheckGuestController</servlet-name>
   	<url-pattern>/CheckGuestController</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+  	<servlet-name>BookedController</servlet-name>
+  	<url-pattern>/BookedController</url-pattern>
   </servlet-mapping>
 
 </web-app>
