@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="org.hibernate.cfg.Configuration"/>
-<fullyQualifiedTypeName name="com.airline.model.User"/>
 <fullyQualifiedTypeName name="com.airline.dao.FlightRecordsDao"/>
-<fullyQualifiedTypeName name="org.hibernate.query.Query"/>
 <fullyQualifiedTypeName name="com.airline.model.Flight"/>
 <fullyQualifiedTypeName name="java.text.ParseException"/>
 <fullyQualifiedTypeName name="com.airline.bo.FlightBO"/>
@@ -13,10 +11,7 @@
 <fullyQualifiedTypeName name="com.airline.dao.CityRecordsDAO"/>
 <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
 <fullyQualifiedTypeName name="com.airline.dao.TicketDetailsDAO"/>
-<fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
-<fullyQualifiedTypeName name="com.airline.util.HibernateUtil"/>
 <fullyQualifiedTypeName name="org.hibernate.HibernateException"/>
-<fullyQualifiedTypeName name="org.hibernate.Session"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
 <fullyQualifiedTypeName name="org.hibernate.annotations.Table"/>
@@ -32,13 +27,21 @@
 <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
 <fullyQualifiedTypeName name="com.airline.model.Passenger"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="com.airline.model.Ticket"/>
 <fullyQualifiedTypeName name="com.airline.model.SpecialService"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="com.airline.model.Visa"/>
 <fullyQualifiedTypeName name="com.airline.bo.TicketBO"/>
+<fullyQualifiedTypeName name="com.airline.bo.UserTicketDisplayBO"/>
+<fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
+<fullyQualifiedTypeName name="com.airline.util.HibernateUtil"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.airline.model.Ticket"/>
+<fullyQualifiedTypeName name="com.airline.model.User"/>
+<fullyQualifiedTypeName name="org.hibernate.Session"/>
+<fullyQualifiedTypeName name="org.hibernate.Query"/>
+<fullyQualifiedTypeName name="org.hibernate.query.Query"/>
+<fullyQualifiedTypeName name="com.airline.dao.UserTicketDAO"/>
 </qualifiedTypeNameHistroy>

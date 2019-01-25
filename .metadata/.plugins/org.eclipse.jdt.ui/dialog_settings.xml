@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item value="false" key="TypeHierarchyViewPart.qualifiednames"/>
+	<item value="true" key="Replace"/>
+	<item value="true" key="Annotations"/>
 	<item value="3" key="TypeHierarchyViewPart.orientation"/>
+	<item value="true" key="Comments"/>
 	<item value="false" key="TypeHierarchyViewPart.linkeditors"/>
+	<item value="false" key="InstanceOf"/>
 	<item value="2" key="TypeHierarchyViewPart.hierarchyview"/>
+	<item value="false" key="delegateUpdating"/>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
 		<item value="false" key="renameSubpackages"/>
 		<item value="false" key="updateQualifiedNames"/>
@@ -65,7 +70,7 @@
 		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History/&gt;" key="History"/>
 	</section>
 	<section name="RefactoringWizard.preview">
-		<item value="600" key="width"/>
+		<item value="630" key="width"/>
 		<item value="400" key="height"/>
 	</section>
 	<section name="SourceActionDialog.methods">
@@ -73,6 +78,8 @@
 		<item value="false" key="Comments"/>
 		<item value="1" key="VisibilityModifier"/>
 		<item value="false" key="FinalModifier"/>
+	</section>
+	<section name="RenameInformationPopup">
 	</section>
 	<section name="quick_assist_proposal_size">
 	</section>

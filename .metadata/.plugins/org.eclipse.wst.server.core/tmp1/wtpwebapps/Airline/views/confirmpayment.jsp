@@ -81,4 +81,3 @@ float price=(Float)session.getAttribute("price");
 </form>
 </body>
 </html>
-
