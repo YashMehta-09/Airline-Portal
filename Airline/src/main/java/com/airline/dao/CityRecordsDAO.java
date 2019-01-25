@@ -23,7 +23,7 @@ public class CityRecordsDAO implements CityDAO {
 		sessionfactory = HibernateUtil.getSessionFactory();
 	}
 	/**
-	 * @return cityList
+	 * @return List<Cities>
 	 */
 	public List<Cities> records() {
 		// TODO Auto-generated method stub

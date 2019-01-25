@@ -44,7 +44,7 @@ public class MySqlDAO implements UserDAO {
         session.beginTransaction();
  
         try{
-        	session.save(user);
+        	session.saveOrUpdate(user);
         	 session.getTransaction().commit();
              session.close();
              return true;

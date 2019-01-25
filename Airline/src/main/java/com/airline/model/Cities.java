@@ -2,10 +2,7 @@ package com.airline.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @author yasha
@@ -23,7 +20,6 @@ public class Cities implements Serializable {
 	private String cityName;
 	@Column(nullable=false)
 	private String abbreviations;
-	
 	
 	
 	/**
@@ -51,7 +47,7 @@ public class Cities implements Serializable {
 		this.abbreviations = abbreviations;
 	}
 	/**
-	 * @return abbreviations
+	 * @return serialVersionUID
 	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;

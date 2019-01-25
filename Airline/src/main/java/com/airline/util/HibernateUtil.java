@@ -1,18 +1,14 @@
 package com.airline.util;
 
-
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-
- 
- 
 /**
  * @author yasha
  *
  */
 public class HibernateUtil {
-     
+    
     private static final SessionFactory sessionFactory;
      
     static{

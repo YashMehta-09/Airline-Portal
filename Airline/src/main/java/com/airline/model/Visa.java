@@ -3,10 +3,7 @@ package com.airline.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @author yasha
@@ -108,7 +105,7 @@ public class Visa implements Serializable {
 
 
 	/**
-	 * @return serialversionUID
+	 * @return serialVersionUID
 	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
