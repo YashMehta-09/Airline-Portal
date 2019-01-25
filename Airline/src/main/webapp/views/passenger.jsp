@@ -153,15 +153,15 @@
 
 									
 
-										<option value="Student">Student </option>
+										<option value="Student">Student Concession : 15%</option>
 
-										<option value="Handicapped">Handicapped</option>
+										<option value="Handicapped">Handicapped Concession : 20%</option>
 
-										<option value="Senior Citizen">Senior citizen</option>
+										<option value="Senior Citizen">Senior citizen Concession : 25%</option>
 
-                                        <option value="Airline Staff">Airline Staff</option>
+                                        <option value="Airline Staff">Airline Staff Concession : 30%</option>
 
-                                     <option  value="Defense Personnel">Defense personnel</option>
+                                     <option  value="Defense Personnel">Defense personnel Concession : 35%</option>
 
 
 
